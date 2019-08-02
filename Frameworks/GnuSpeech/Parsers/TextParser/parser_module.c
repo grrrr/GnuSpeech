@@ -508,6 +508,7 @@ const char *lookup_word(const char *word, short *dict)
 				w = [NSString stringWithCString:word encoding:NSASCIIStringEncoding];
 				if ((pr = [userDictionary pronunciationForWord:w]) != nil) {
 					pronunciation = [pr cStringUsingEncoding:NSASCIIStringEncoding];
+                    assert((pr == nil) == (pronunciation == nil));
 					*dict = TTS_USER_DICTIONARY;
 					return((const char *)pronunciation);
 				}
@@ -3174,8 +3175,11 @@ static void insert_chunk_marker(NXStream *stream, long insert_point, char tg_typ
 	
 	/*  COPY STREAM FROM INSERT POINT TO END TO BUFFER TO ANOTHER STREAM  */
 	NXSeek(stream, insert_point, NX_FROMSTART);
-	while ((c = NXGetc(stream)) != '\0')
+    while ((c = NXGetc(stream)) != '\0') {
+        if(c == '\xff')
+            break;
 		NXPutc(temp_stream, c);
+    }
 	NXPutc(temp_stream, '\0');
 	
 	/*  PUT IN MARKERS AT INSERT POINT  */
@@ -3186,8 +3190,11 @@ static void insert_chunk_marker(NXStream *stream, long insert_point, char tg_typ
 	
 	/*  APPEND CONTENTS OF TEMPORARY STREAM  */
 	NXSeek(temp_stream, 0, NX_FROMSTART);
-	while ((c = NXGetc(temp_stream)) != '\0')
+    while ((c = NXGetc(temp_stream)) != '\0') {
+        if(c == '\xff')
+            break;
 		NXPutc(stream, c);
+    }
 	NXPutc(stream, '\0');
 	
 	/*  POSITION THE STREAM AT THE NEW /c MARKER  */
