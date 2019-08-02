@@ -1,13 +1,18 @@
 //  This file is part of Gnuspeech, an extensible, text-to-speech package, based on real-time, articulatory, speech-synthesis-by-rules. 
 //  Copyright 1991-2012 David R. Hill, Leonard Manzara, Craig Schock
 
+#ifdef USESNDFILE
+#include <sndfile.h>
+#else
 #import <AudioToolbox/AudioToolbox.h>
+#endif
 
 #import "TRMDataList.h"
 #import "TRMInputParameters.h"
 #import "NSData-STExtensions.h"
 #import "TRMTubeModel.h"
 
+#ifndef USESNDFILE
 AudioFileTypeID TRMCoreAudioFormatFromSoundFileFormat(TRMSoundFileFormat format)
 {
     switch (format) {
@@ -42,6 +47,7 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
 
     return @"Unknown";
 }
+#endif
 
 #pragma mark -
 
@@ -276,6 +282,48 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
     //NSString *filePath = [filename stringByAppendingPathExtension:TRMSoundFileFormatExtension(self.inputParameters.outputFileFormat)];
     NSURL *fileURL = [NSURL fileURLWithPath:filename];
 
+#ifdef USESNDFILE
+    SF_INFO sfinfo;
+    memset (&sfinfo, 0, sizeof (sfinfo)) ;
+    sfinfo.samplerate    = self.inputParameters.outputRate;
+    sfinfo.frames        = 0;
+    sfinfo.channels      = self.inputParameters.channels;
+    sfinfo.format        = (SF_FORMAT_WAV | SF_FORMAT_PCM_16) ;
+
+    const int BUFLEN = 4096;
+    const char *outfilename = [[fileURL path] UTF8String];
+    SNDFILE *outfile = sf_open(outfilename, SFM_WRITE, &sfinfo);
+
+    if(!outfile) {
+        printf("Could not open outfile %s\n", outfilename);
+        return false;
+    }
+    
+    if (self.inputParameters.channels == 1) {
+        for (int32_t index = 0; index < self.sampleRateConverter.numberSamples; ) {
+            double samples[BUFLEN];
+            int maxget = self.sampleRateConverter.numberSamples-index;
+            if(maxget > BUFLEN) maxget = BUFLEN;
+            NSInteger result = [inputStream read:(void *)samples maxLength:maxget*sizeof(samples[0])];
+            const int read = result/sizeof(samples[0]);
+            if(!read)
+                break;
+//            double maxvol = 0;
+            for(int i = 0; i < read; ++i) {
+                samples[i] *= scale;
+//                double sabs = fabs(samples[i]);
+//                if(sabs > maxvol) maxvol = sabs;
+            }
+            int written = sf_write_double(outfile, samples, read);
+//            printf("Wanted %i / got %i / wrote %i: maxvol %f\n", maxget, read, written, maxvol);
+            index += read;
+        }
+    }
+    else {
+        // Not implemented
+    }
+    sf_close(outfile);
+#else
     // WAV must be little endian
     AudioStreamBasicDescription asbd;
     memset(&asbd, 0, sizeof(asbd));
@@ -366,6 +414,7 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
 
     audioError = AudioFileClose(audioFile);
     assert(audioError == noErr);
+#endif
 
     [inputStream close];
     
