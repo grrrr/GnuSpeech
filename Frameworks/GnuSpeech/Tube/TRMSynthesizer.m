@@ -40,7 +40,7 @@
     _inputData.inputParameters.outputRate     = synthesisParameters.sampleRate;
     _inputData.inputParameters.controlRate    = 250;
     _inputData.inputParameters.volume         = [synthesisParameters masterVolume];
-    _inputData.inputParameters.channels       = [synthesisParameters outputChannels] + 1;
+    _inputData.inputParameters.channels       = [synthesisParameters outputChannels]; // + 1;
     _inputData.inputParameters.balance        = [synthesisParameters balance];
     _inputData.inputParameters.waveform       = [synthesisParameters glottalPulseShape];
     _inputData.inputParameters.tp             = [synthesisParameters tp];
