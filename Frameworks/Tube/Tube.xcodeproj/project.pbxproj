@@ -28,7 +28,7 @@
 		016B4AD8156CF1FD006874F4 /* TRMSampleRateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C6719215687CF6008840E9 /* TRMSampleRateConverter.m */; };
 		016B4AD9156CF214006874F4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016B4ABA156CD859006874F4 /* AudioToolbox.framework */; };
 		0172DA14153FDD2F00413F56 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0172DA13153FDD2F00413F56 /* Accelerate.framework */; };
-		01913D15156E537500A2DE2B /* TRMFilters.h in Headers */ = {isa = PBXBuildFile; fileRef = 01913D13156E537500A2DE2B /* TRMFilters.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		01913D15156E537500A2DE2B /* TRMFilters.h in Headers */ = {isa = PBXBuildFile; fileRef = 01913D13156E537500A2DE2B /* TRMFilters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01913D16156E537500A2DE2B /* TRMFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 01913D14156E537500A2DE2B /* TRMFilters.m */; };
 		01913D17156E537500A2DE2B /* TRMFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 01913D14156E537500A2DE2B /* TRMFilters.m */; };
 		019CCB8E154BE30D00A9CF7A /* TRMInputParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 019CCB8C154BE30C00A9CF7A /* TRMInputParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,18 +38,20 @@
 		019CCB9C154BE65400A9CF7A /* TRMParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 019CCB9A154BE65400A9CF7A /* TRMParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		019CCB9D154BE65400A9CF7A /* TRMParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 019CCB9B154BE65400A9CF7A /* TRMParameters.m */; };
 		01AC657B0B7BF4D8008E4B93 /* TRMFIRFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AC656B0B7BF4D8008E4B93 /* TRMFIRFilter.m */; };
-		01AC657C0B7BF4D8008E4B93 /* TRMFIRFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC656C0B7BF4D8008E4B93 /* TRMFIRFilter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		01AC657C0B7BF4D8008E4B93 /* TRMFIRFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC656C0B7BF4D8008E4B93 /* TRMFIRFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01AC65810B7BF4D8008E4B93 /* TRMRingBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AC65710B7BF4D8008E4B93 /* TRMRingBuffer.m */; };
-		01AC65820B7BF4D8008E4B93 /* TRMRingBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC65720B7BF4D8008E4B93 /* TRMRingBuffer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		01AC65820B7BF4D8008E4B93 /* TRMRingBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC65720B7BF4D8008E4B93 /* TRMRingBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01AC65860B7BF4D8008E4B93 /* Tube.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC65760B7BF4D8008E4B93 /* Tube.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01AC65870B7BF4D8008E4B93 /* TRMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AC65770B7BF4D8008E4B93 /* TRMUtility.m */; };
-		01AC65880B7BF4D8008E4B93 /* TRMUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC65780B7BF4D8008E4B93 /* TRMUtility.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		01AC65880B7BF4D8008E4B93 /* TRMUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC65780B7BF4D8008E4B93 /* TRMUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01AC65890B7BF4D8008E4B93 /* TRMWavetable.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AC65790B7BF4D8008E4B93 /* TRMWavetable.m */; };
-		01AC658A0B7BF4D8008E4B93 /* TRMWavetable.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC657A0B7BF4D8008E4B93 /* TRMWavetable.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		01C6719315687CF6008840E9 /* TRMSampleRateConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C6719115687CF6008840E9 /* TRMSampleRateConverter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		01AC658A0B7BF4D8008E4B93 /* TRMWavetable.h in Headers */ = {isa = PBXBuildFile; fileRef = 01AC657A0B7BF4D8008E4B93 /* TRMWavetable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01C6719315687CF6008840E9 /* TRMSampleRateConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C6719115687CF6008840E9 /* TRMSampleRateConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01C6719415687CF6008840E9 /* TRMSampleRateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C6719215687CF6008840E9 /* TRMSampleRateConverter.m */; };
 		697930D80F91911E00E6B2EC /* ChangeLog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 697930D70F91911E00E6B2EC /* ChangeLog.txt */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		E922D3E122D937F9009B46A8 /* TRMConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = E922D3E022D937F0009B46A8 /* TRMConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9E86C6B22DDEC7200E79D24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E86C6A22DDEC7200E79D24 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,6 +106,8 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Tube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		E922D3E022D937F0009B46A8 /* TRMConstants.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TRMConstants.h; sourceTree = "<group>"; };
+		E9E86C6A22DDEC7200E79D24 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				01115F8B1547C381002ABAAF /* main.m */,
+				E9E86C6A22DDEC7200E79D24 /* main.m */,
 				01115F8D1547C381002ABAAF /* Supporting Files */,
 			);
 			path = softwareTRM;
@@ -224,6 +229,7 @@
 				01AC657A0B7BF4D8008E4B93 /* TRMWavetable.h */,
 				01AC65790B7BF4D8008E4B93 /* TRMWavetable.m */,
 				01115F7E1547C35A002ABAAF /* main.m */,
+				E922D3E022D937F0009B46A8 /* TRMConstants.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E922D3E122D937F9009B46A8 /* TRMConstants.h in Headers */,
 				01AC65860B7BF4D8008E4B93 /* Tube.h in Headers */,
 				019CCB93154BE46B00A9CF7A /* TRMDataList.h in Headers */,
 				019CCB8E154BE30D00A9CF7A /* TRMInputParameters.h in Headers */,
@@ -330,6 +337,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Tube */;
@@ -360,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9E86C6B22DDEC7200E79D24 /* main.m in Sources */,
 				016B4AD6156CF1FD006874F4 /* TRMInputParameters.m in Sources */,
 				016B4AD7156CF1FD006874F4 /* TRMParameters.m in Sources */,
 				016B4AD8156CF1FD006874F4 /* TRMSampleRateConverter.m in Sources */,
@@ -420,8 +429,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lsndfile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Debug;
 		};
@@ -435,8 +447,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lsndfile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Release;
 		};
@@ -453,7 +468,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tube_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lsndfile";
 				PRODUCT_NAME = Tube;
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -470,8 +488,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tube_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/$(EXECUTABLE_PATH)";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lsndfile";
 				PRODUCT_NAME = Tube;
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;

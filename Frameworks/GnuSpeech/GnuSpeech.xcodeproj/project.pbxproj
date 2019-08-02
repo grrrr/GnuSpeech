@@ -449,8 +449,8 @@
 			children = (
 				014185291542B0F1001AE3B5 /* Input data from XML file */,
 				0155E4120B7BE8F9008D8879 /* Event.h */,
-				0155E4130B7BE8F9008D8879 /* Event.m */,
 				01061FA01B329D4200FBB2B4 /* MMIntonation.h */,
+				0155E4130B7BE8F9008D8879 /* Event.m */,
 				01061FA11B329D4200FBB2B4 /* MMIntonation.m */,
 				01658B471B4BC7C300D2C0B7 /* MMIntonationParameters.h */,
 				01658B481B4BC7C300D2C0B7 /* MMIntonationParameters.m */,
@@ -862,6 +862,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* GnuSpeech */;
@@ -1003,8 +1004,11 @@
 				GCC_PREFIX_HEADER = GnuSpeech_Prefix.pch;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/$(EXECUTABLE_PATH)";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lsndfile";
 				PRODUCT_NAME = GnuSpeech;
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -1023,8 +1027,11 @@
 				GCC_PREFIX_HEADER = GnuSpeech_Prefix.pch;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/$(EXECUTABLE_PATH)";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lsndfile";
 				PRODUCT_NAME = GnuSpeech;
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;

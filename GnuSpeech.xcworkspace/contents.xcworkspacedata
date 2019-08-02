@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:mu_speech/mu_speech.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Applications/Monet/Monet.xcodeproj">
    </FileRef>
    <FileRef

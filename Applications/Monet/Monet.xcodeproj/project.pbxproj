@@ -61,7 +61,6 @@
 		01F470B115408C3300A604B8 /* GnuSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F470B015408C3300A604B8 /* GnuSpeech.framework */; };
 		69454E080F8D4DB200EBA0DC /* ChangeLog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69454E070F8D4DB200EBA0DC /* ChangeLog.txt */; };
 		696CE7B80F26DBD60014B94A /* Monet.icns in Resources */ = {isa = PBXBuildFile; fileRef = 696CE7B70F26DBD60014B94A /* Monet.icns */; };
-		69CD4B2A0EDD15AD00481C86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69CD4B280EDD15AD00481C86 /* MainMenu.xib */; };
 		69CD4B300EDD15C800481C86 /* DataEntry.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69CD4B2E0EDD15C800481C86 /* DataEntry.xib */; };
 		69CD4B350EDD15E200481C86 /* PostureCategory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69CD4B330EDD15E200481C86 /* PostureCategory.xib */; };
 		69CD4B3A0EDD15F300481C86 /* Postures.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69CD4B380EDD15F300481C86 /* Postures.xib */; };
@@ -76,6 +75,57 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		E9E86C0E22DDE73400E79D24 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9E86C0C22DDE73300E79D24 /* MainMenu.xib */; };
+		E9E86C1D22DDEBE200E79D24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		E9E86C1E22DDEBE200E79D24 /* ReleaseNotes.html in Resources */ = {isa = PBXBuildFile; fileRef = 01C55C490B7BC7C6009F6A92 /* ReleaseNotes.html */; };
+		E9E86C2022DDEBE200E79D24 /* Default.mxml in Resources */ = {isa = PBXBuildFile; fileRef = 01C55C4C0B7BC7D8009F6A92 /* Default.mxml */; };
+		E9E86C2122DDEBE200E79D24 /* CommentIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 01C55C4E0B7BC82D009F6A92 /* CommentIcon.tiff */; };
+		E9E86C2222DDEBE200E79D24 /* dotInspector.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 01C55C4F0B7BC82D009F6A92 /* dotInspector.tiff */; };
+		E9E86C2322DDEBE200E79D24 /* Monet2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 01C55C500B7BC82D009F6A92 /* Monet2.icns */; };
+		E9E86C2422DDEBE200E79D24 /* monet2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01C55C510B7BC82D009F6A92 /* monet2.jpg */; };
+		E9E86C2522DDEBE200E79D24 /* squareInspector.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 01C55C520B7BC82D009F6A92 /* squareInspector.tiff */; };
+		E9E86C2622DDEBE200E79D24 /* triangleInspector.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 01C55C530B7BC82D009F6A92 /* triangleInspector.tiff */; };
+		E9E86C2E22DDEBE200E79D24 /* diphones.mxml in Resources */ = {isa = PBXBuildFile; fileRef = 01CB9FAA1B439CE2007CAFD5 /* diphones.mxml */; };
+		E9E86C3322DDEBE200E79D24 /* graph-template.html in Resources */ = {isa = PBXBuildFile; fileRef = 01AC5F461B424D3800CC6E51 /* graph-template.html */; };
+		E9E86C3922DDEBE200E79D24 /* Monet.icns in Resources */ = {isa = PBXBuildFile; fileRef = 696CE7B70F26DBD60014B94A /* Monet.icns */; };
+		E9E86C3A22DDEBE200E79D24 /* ChangeLog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69454E070F8D4DB200EBA0DC /* ChangeLog.txt */; };
+		E9E86C3C22DDEBE200E79D24 /* MAGraphNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 015844851B3CE18E00490599 /* MAGraphNameView.m */; };
+		E9E86C3D22DDEBE200E79D24 /* MEventTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01462C031B35131D0029A6A2 /* MEventTableController.m */; };
+		E9E86C4322DDEBE200E79D24 /* MIntonationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010751441B36596E0029A4D5 /* MIntonationController.m */; };
+		E9E86C4422DDEBE200E79D24 /* MDisplayParametersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015844801B3BAA3B00490599 /* MDisplayParametersController.m */; };
+		E9E86C4722DDEBE200E79D24 /* MAIntonationScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D520B7BCDB4009F6A92 /* MAIntonationScaleView.m */; };
+		E9E86C4822DDEBE200E79D24 /* MAIntonationScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D540B7BCDB4009F6A92 /* MAIntonationScrollView.m */; };
+		E9E86C4922DDEBE200E79D24 /* MAIntonationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D560B7BCDB4009F6A92 /* MAIntonationView.m */; };
+		E9E86C4A22DDEBE200E79D24 /* MIntonationSettingsEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 01061F9B1B328A0C00FBB2B4 /* MIntonationSettingsEditor.m */; };
+		E9E86C4B22DDEBE200E79D24 /* MCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D5D0B7BCDEE009F6A92 /* MCommentCell.m */; };
+		E9E86C4C22DDEBE200E79D24 /* MExtendedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D5F0B7BCDEE009F6A92 /* MExtendedTableView.m */; };
+		E9E86C4D22DDEBE200E79D24 /* MOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D610B7BCDEE009F6A92 /* MOutlineView.m */; };
+		E9E86C4E22DDEBE200E79D24 /* SpecialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D630B7BCDEE009F6A92 /* SpecialView.m */; };
+		E9E86C4F22DDEBE200E79D24 /* TransitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D650B7BCDEE009F6A92 /* TransitionView.m */; };
+		E9E86C5122DDEBE200E79D24 /* MDataEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D6F0B7BCE53009F6A92 /* MDataEntryController.m */; };
+		E9E86C5222DDEBE200E79D24 /* MPostureCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D710B7BCE53009F6A92 /* MPostureCategoryController.m */; };
+		E9E86C5322DDEBE200E79D24 /* MAScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E6ED661B40B189004A3258 /* MAScrollView.m */; };
+		E9E86C5422DDEBE200E79D24 /* MPostureEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D730B7BCE53009F6A92 /* MPostureEditor.m */; };
+		E9E86C5522DDEBE200E79D24 /* MARulePhoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0148E7D31B3D229400E1F09C /* MARulePhoneView.m */; };
+		E9E86C5622DDEBE200E79D24 /* MPrototypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D750B7BCE53009F6A92 /* MPrototypeManager.m */; };
+		E9E86C5722DDEBE200E79D24 /* MReleaseNotesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D770B7BCE53009F6A92 /* MReleaseNotesController.m */; };
+		E9E86C5822DDEBE200E79D24 /* MRuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D790B7BCE53009F6A92 /* MRuleManager.m */; };
+		E9E86C5922DDEBE200E79D24 /* MRuleTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D7B0B7BCE53009F6A92 /* MRuleTester.m */; };
+		E9E86C5A22DDEBE200E79D24 /* MGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017F48F91B437A5F000B5522 /* MGraphViewController.m */; };
+		E9E86C5B22DDEBE200E79D24 /* MSpecialTransitionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D7D0B7BCE53009F6A92 /* MSpecialTransitionEditor.m */; };
+		E9E86C5D22DDEBE200E79D24 /* MSynthesisParameterEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D810B7BCE53009F6A92 /* MSynthesisParameterEditor.m */; };
+		E9E86C5E22DDEBE200E79D24 /* MTransitionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D830B7BCE53009F6A92 /* MTransitionEditor.m */; };
+		E9E86C5F22DDEBE200E79D24 /* MWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D850B7BCE53009F6A92 /* MWindowController.m */; };
+		E9E86C6022DDEBE200E79D24 /* MAGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0148E7D61B3D2BF400E1F09C /* MAGraphView.m */; };
+		E9E86C6222DDEBE200E79D24 /* GnuSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F470B015408C3300A604B8 /* GnuSpeech.framework */; };
+		E9E86C6322DDEBE200E79D24 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		E9E86C6E22DDECC800E79D24 /* consmain.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E86C6D22DDECC800E79D24 /* consmain.m */; };
+		E9E86C6F22DDF27900E79D24 /* MMDisplayParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55D490B7BCD69009F6A92 /* MMDisplayParameter.m */; };
+		E9E86C7022DDF27900E79D24 /* MMIntonation-Monet.m in Sources */ = {isa = PBXBuildFile; fileRef = 01462C001B34B2CF0029A6A2 /* MMIntonation-Monet.m */; };
+		E9E86C7122DDF27E00E79D24 /* NSBezierPath-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55CAF0B7BCB03009F6A92 /* NSBezierPath-Extensions.m */; };
+		E9E86C7222DDF27E00E79D24 /* NSColor-STExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55CB10B7BCB03009F6A92 /* NSColor-STExtensions.m */; };
+		E9E86C7322DDF27E00E79D24 /* NSOutlineView-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55CB30B7BCB03009F6A92 /* NSOutlineView-Extensions.m */; };
+		E9E86C7422DDF28300E79D24 /* NSNumberFormatter-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C55C970B7BCAAC009F6A92 /* NSNumberFormatter-Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,20 +226,23 @@
 		32CA4F630368D1EE00C91783 /* Monet_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monet_Prefix.pch; sourceTree = "<group>"; };
 		69454E070F8D4DB200EBA0DC /* ChangeLog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLog.txt; sourceTree = "<group>"; };
 		696CE7B70F26DBD60014B94A /* Monet.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Monet.icns; sourceTree = "<group>"; };
-		69CD4B290EDD15AD00481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		69CD4B2F0EDD15C800481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/DataEntry.xib; sourceTree = "<group>"; };
-		69CD4B340EDD15E200481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PostureCategory.xib; sourceTree = "<group>"; };
-		69CD4B390EDD15F300481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Postures.xib; sourceTree = "<group>"; };
-		69CD4B3E0EDD160400481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PrototypeManager.xib; sourceTree = "<group>"; };
-		69CD4B430EDD161800481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ReleaseNotes.xib; sourceTree = "<group>"; };
-		69CD4B480EDD162800481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/RuleManager.xib; sourceTree = "<group>"; };
-		69CD4B4D0EDD163700481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/RuleTester.xib; sourceTree = "<group>"; };
-		69CD4B520EDD164800481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SpecialTransitionEditor.xib; sourceTree = "<group>"; };
-		69CD4B570EDD165700481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Synthesis.xib; sourceTree = "<group>"; };
-		69CD4B5C0EDD166600481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SynthesisParameters.xib; sourceTree = "<group>"; };
-		69CD4B610EDD168000481C86 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TransitionEditor.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Monet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E86C0B22DDE69400E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RuleTester.xib; sourceTree = "<group>"; };
+		E9E86C0F22DDE73A00E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E9E86C1022DDE76500E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SynthesisParameters.xib; sourceTree = "<group>"; };
+		E9E86C1122DDE78400E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PostureCategory.xib; sourceTree = "<group>"; };
+		E9E86C1222DDE7B300E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DataEntry.xib; sourceTree = "<group>"; };
+		E9E86C1322DDE7BF00E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Postures.xib; sourceTree = "<group>"; };
+		E9E86C1422DDE7CD00E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PrototypeManager.xib; sourceTree = "<group>"; };
+		E9E86C1522DDE7D900E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ReleaseNotes.xib; sourceTree = "<group>"; };
+		E9E86C1622DDE7E400E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RuleManager.xib; sourceTree = "<group>"; };
+		E9E86C1722DDE7EF00E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SpecialTransitionEditor.xib; sourceTree = "<group>"; };
+		E9E86C1822DDE7FA00E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Synthesis.xib; sourceTree = "<group>"; };
+		E9E86C6822DDEBE200E79D24 /* monetcons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = monetcons.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E86C6922DDEBE200E79D24 /* Monet copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Monet copy-Info.plist"; path = "/Users/thomas/Documents/dev/gnuspeech-0.9/Applications/Monet/Monet copy-Info.plist"; sourceTree = "<absolute>"; };
+		E9E86C6D22DDECC800E79D24 /* consmain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = consmain.m; sourceTree = "<group>"; };
+		E9E86C7522DDF2CC00E79D24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TransitionEditor.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +252,15 @@
 			files = (
 				01F470B115408C3300A604B8 /* GnuSpeech.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9E86C6122DDEBE200E79D24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9E86C6222DDEBE200E79D24 /* GnuSpeech.framework in Frameworks */,
+				E9E86C6322DDEBE200E79D24 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,9 +498,9 @@
 		01C55C8C0B7BCA10009F6A92 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E9E86C0C22DDE73300E79D24 /* MainMenu.xib */,
 				01C55D6C0B7BCE53009F6A92 /* AppController.h */,
 				01C55D6D0B7BCE53009F6A92 /* AppController.m */,
-				69CD4B280EDD15AD00481C86 /* MainMenu.xib */,
 				0161BEF61544C3F100A1D178 /* Data Entry */,
 				0161BEF71544C3F900A1D178 /* Posture Category */,
 				0161BEF81544C40500A1D178 /* Posture Editor */,
@@ -531,6 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Monet.app */,
+				E9E86C6822DDEBE200E79D24 /* monetcons.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -538,11 +601,13 @@
 		29B97314FDCFA39411CA2CEA /* Monet */ = {
 			isa = PBXGroup;
 			children = (
+				E9E86C6C22DDECAB00E79D24 /* cons */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				E9E86C6922DDEBE200E79D24 /* Monet copy-Info.plist */,
 			);
 			name = Monet;
 			sourceTree = "<group>";
@@ -579,6 +644,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E9E86C6C22DDECAB00E79D24 /* cons */ = {
+			isa = PBXGroup;
+			children = (
+				E9E86C6D22DDECC800E79D24 /* consmain.m */,
+			);
+			path = cons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -599,6 +672,25 @@
 			productInstallPath = "$(HOME)/Applications";
 			productName = Monet;
 			productReference = 8D1107320486CEB800E47090 /* Monet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E9E86C1B22DDEBE200E79D24 /* monetcons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9E86C6522DDEBE200E79D24 /* Build configuration list for PBXNativeTarget "monetcons" */;
+			buildPhases = (
+				E9E86C1C22DDEBE200E79D24 /* Resources */,
+				E9E86C3B22DDEBE200E79D24 /* Sources */,
+				E9E86C6122DDEBE200E79D24 /* Frameworks */,
+				E9E86C6422DDEBE200E79D24 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = monetcons;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Monet;
+			productReference = E9E86C6822DDEBE200E79D24 /* monetcons.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -623,6 +715,7 @@
 			projectRoot = ../..;
 			targets = (
 				8D1107260486CEB800E47090 /* Monet */,
+				E9E86C1B22DDEBE200E79D24 /* monetcons */,
 			);
 		};
 /* End PBXProject section */
@@ -643,7 +736,7 @@
 				01C55C580B7BC82D009F6A92 /* squareInspector.tiff in Resources */,
 				01C55C590B7BC82D009F6A92 /* triangleInspector.tiff in Resources */,
 				01462C061B35131D0029A6A2 /* EventTable.xib in Resources */,
-				69CD4B2A0EDD15AD00481C86 /* MainMenu.xib in Resources */,
+				E9E86C0E22DDE73400E79D24 /* MainMenu.xib in Resources */,
 				69CD4B300EDD15C800481C86 /* DataEntry.xib in Resources */,
 				69CD4B350EDD15E200481C86 /* PostureCategory.xib in Resources */,
 				69CD4B3A0EDD15F300481C86 /* Postures.xib in Resources */,
@@ -665,10 +758,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9E86C1C22DDEBE200E79D24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9E86C1D22DDEBE200E79D24 /* InfoPlist.strings in Resources */,
+				E9E86C1E22DDEBE200E79D24 /* ReleaseNotes.html in Resources */,
+				E9E86C2022DDEBE200E79D24 /* Default.mxml in Resources */,
+				E9E86C2122DDEBE200E79D24 /* CommentIcon.tiff in Resources */,
+				E9E86C2222DDEBE200E79D24 /* dotInspector.tiff in Resources */,
+				E9E86C2322DDEBE200E79D24 /* Monet2.icns in Resources */,
+				E9E86C2422DDEBE200E79D24 /* monet2.jpg in Resources */,
+				E9E86C2522DDEBE200E79D24 /* squareInspector.tiff in Resources */,
+				E9E86C2622DDEBE200E79D24 /* triangleInspector.tiff in Resources */,
+				E9E86C2E22DDEBE200E79D24 /* diphones.mxml in Resources */,
+				E9E86C3322DDEBE200E79D24 /* graph-template.html in Resources */,
+				E9E86C3922DDEBE200E79D24 /* Monet.icns in Resources */,
+				E9E86C3A22DDEBE200E79D24 /* ChangeLog.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		01A44FE71B23FEAD0039C2C9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/zsh;
+			shellScript = "# Remove the symbolic links first!\n#exit 5\n#rm $DSTROOT/Library/Frameworks/*.framework/PrivateHeaders\n#rm $DSTROOT/Library/Frameworks/**/PrivateHeaders/*.h\n#rmdir $DSTROOT/Library/Frameworks/**/PrivateHeaders\nFPATH=$INSTALL_DIR/$FRAMEWORKS_FOLDER_PATH\nmkdir $FPATH\nmv $DSTROOT/Library/Frameworks/*.framework $FPATH\nrmdir $DSTROOT/Library/Frameworks\nrmdir $DSTROOT/Library\n";
+		};
+		E9E86C6422DDEBE200E79D24 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
@@ -728,6 +854,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9E86C3B22DDEBE200E79D24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9E86C3C22DDEBE200E79D24 /* MAGraphNameView.m in Sources */,
+				E9E86C3D22DDEBE200E79D24 /* MEventTableController.m in Sources */,
+				E9E86C4322DDEBE200E79D24 /* MIntonationController.m in Sources */,
+				E9E86C7422DDF28300E79D24 /* NSNumberFormatter-Extensions.m in Sources */,
+				E9E86C4422DDEBE200E79D24 /* MDisplayParametersController.m in Sources */,
+				E9E86C6E22DDECC800E79D24 /* consmain.m in Sources */,
+				E9E86C4722DDEBE200E79D24 /* MAIntonationScaleView.m in Sources */,
+				E9E86C4822DDEBE200E79D24 /* MAIntonationScrollView.m in Sources */,
+				E9E86C4922DDEBE200E79D24 /* MAIntonationView.m in Sources */,
+				E9E86C4A22DDEBE200E79D24 /* MIntonationSettingsEditor.m in Sources */,
+				E9E86C4B22DDEBE200E79D24 /* MCommentCell.m in Sources */,
+				E9E86C4C22DDEBE200E79D24 /* MExtendedTableView.m in Sources */,
+				E9E86C4D22DDEBE200E79D24 /* MOutlineView.m in Sources */,
+				E9E86C6F22DDF27900E79D24 /* MMDisplayParameter.m in Sources */,
+				E9E86C4E22DDEBE200E79D24 /* SpecialView.m in Sources */,
+				E9E86C7222DDF27E00E79D24 /* NSColor-STExtensions.m in Sources */,
+				E9E86C4F22DDEBE200E79D24 /* TransitionView.m in Sources */,
+				E9E86C5122DDEBE200E79D24 /* MDataEntryController.m in Sources */,
+				E9E86C5222DDEBE200E79D24 /* MPostureCategoryController.m in Sources */,
+				E9E86C5322DDEBE200E79D24 /* MAScrollView.m in Sources */,
+				E9E86C5422DDEBE200E79D24 /* MPostureEditor.m in Sources */,
+				E9E86C5522DDEBE200E79D24 /* MARulePhoneView.m in Sources */,
+				E9E86C5622DDEBE200E79D24 /* MPrototypeManager.m in Sources */,
+				E9E86C5722DDEBE200E79D24 /* MReleaseNotesController.m in Sources */,
+				E9E86C5822DDEBE200E79D24 /* MRuleManager.m in Sources */,
+				E9E86C5922DDEBE200E79D24 /* MRuleTester.m in Sources */,
+				E9E86C5A22DDEBE200E79D24 /* MGraphViewController.m in Sources */,
+				E9E86C7322DDF27E00E79D24 /* NSOutlineView-Extensions.m in Sources */,
+				E9E86C5B22DDEBE200E79D24 /* MSpecialTransitionEditor.m in Sources */,
+				E9E86C5D22DDEBE200E79D24 /* MSynthesisParameterEditor.m in Sources */,
+				E9E86C7022DDF27900E79D24 /* MMIntonation-Monet.m in Sources */,
+				E9E86C5E22DDEBE200E79D24 /* MTransitionEditor.m in Sources */,
+				E9E86C5F22DDEBE200E79D24 /* MWindowController.m in Sources */,
+				E9E86C6022DDEBE200E79D24 /* MAGraphView.m in Sources */,
+				E9E86C7122DDF27E00E79D24 /* NSBezierPath-Extensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -747,18 +915,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		69CD4B280EDD15AD00481C86 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				69CD4B290EDD15AD00481C86 /* English */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
 		69CD4B2E0EDD15C800481C86 /* DataEntry.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B2F0EDD15C800481C86 /* English */,
+				E9E86C1222DDE7B300E79D24 /* en */,
 			);
 			name = DataEntry.xib;
 			sourceTree = "<group>";
@@ -766,7 +926,7 @@
 		69CD4B330EDD15E200481C86 /* PostureCategory.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B340EDD15E200481C86 /* English */,
+				E9E86C1122DDE78400E79D24 /* en */,
 			);
 			name = PostureCategory.xib;
 			sourceTree = "<group>";
@@ -774,7 +934,7 @@
 		69CD4B380EDD15F300481C86 /* Postures.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B390EDD15F300481C86 /* English */,
+				E9E86C1322DDE7BF00E79D24 /* en */,
 			);
 			name = Postures.xib;
 			sourceTree = "<group>";
@@ -782,7 +942,7 @@
 		69CD4B3D0EDD160400481C86 /* PrototypeManager.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B3E0EDD160400481C86 /* English */,
+				E9E86C1422DDE7CD00E79D24 /* en */,
 			);
 			name = PrototypeManager.xib;
 			sourceTree = "<group>";
@@ -790,7 +950,7 @@
 		69CD4B420EDD161800481C86 /* ReleaseNotes.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B430EDD161800481C86 /* English */,
+				E9E86C1522DDE7D900E79D24 /* en */,
 			);
 			name = ReleaseNotes.xib;
 			sourceTree = "<group>";
@@ -798,7 +958,7 @@
 		69CD4B470EDD162800481C86 /* RuleManager.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B480EDD162800481C86 /* English */,
+				E9E86C1622DDE7E400E79D24 /* en */,
 			);
 			name = RuleManager.xib;
 			sourceTree = "<group>";
@@ -806,7 +966,7 @@
 		69CD4B4C0EDD163700481C86 /* RuleTester.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B4D0EDD163700481C86 /* English */,
+				E9E86C0B22DDE69400E79D24 /* en */,
 			);
 			name = RuleTester.xib;
 			sourceTree = "<group>";
@@ -814,7 +974,7 @@
 		69CD4B510EDD164800481C86 /* SpecialTransitionEditor.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B520EDD164800481C86 /* English */,
+				E9E86C1722DDE7EF00E79D24 /* en */,
 			);
 			name = SpecialTransitionEditor.xib;
 			sourceTree = "<group>";
@@ -822,7 +982,7 @@
 		69CD4B560EDD165700481C86 /* Synthesis.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B570EDD165700481C86 /* English */,
+				E9E86C1822DDE7FA00E79D24 /* en */,
 			);
 			name = Synthesis.xib;
 			sourceTree = "<group>";
@@ -830,7 +990,7 @@
 		69CD4B5B0EDD166600481C86 /* SynthesisParameters.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B5C0EDD166600481C86 /* English */,
+				E9E86C1022DDE76500E79D24 /* en */,
 			);
 			name = SynthesisParameters.xib;
 			sourceTree = "<group>";
@@ -838,9 +998,17 @@
 		69CD4B600EDD168000481C86 /* TransitionEditor.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				69CD4B610EDD168000481C86 /* English */,
+				E9E86C7522DDF2CC00E79D24 /* en */,
 			);
 			name = TransitionEditor.xib;
+			sourceTree = "<group>";
+		};
+		E9E86C0C22DDE73300E79D24 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9E86C0F22DDE73A00E79D24 /* en */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -944,6 +1112,42 @@
 			};
 			name = Release;
 		};
+		E9E86C6622DDEBE200E79D24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/GnuSpeech-asltgrlxcnhnopcwrardgfljqcve/Build/Products/Debug\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				INFOPLIST_FILE = "Monet copy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		E9E86C6722DDEBE200E79D24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/GnuSpeech-asltgrlxcnhnopcwrardgfljqcve/Build/Products/Debug\"",
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = Monet_Prefix.pch;
+				INFOPLIST_FILE = "Monet copy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -961,6 +1165,15 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9E86C6522DDEBE200E79D24 /* Build configuration list for PBXNativeTarget "monetcons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9E86C6622DDEBE200E79D24 /* Debug */,
+				E9E86C6722DDEBE200E79D24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
