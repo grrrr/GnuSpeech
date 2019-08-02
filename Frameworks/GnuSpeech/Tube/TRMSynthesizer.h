@@ -16,6 +16,7 @@
 @property (strong) NSString *filename;
 @property (nonatomic, assign) NSUInteger fileType;
 
+- (void)dump;
 - (void)synthesize;
 
 @end

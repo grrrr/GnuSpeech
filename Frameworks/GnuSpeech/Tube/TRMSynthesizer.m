@@ -115,6 +115,27 @@
     _inputData.inputParameters.outputFileFormat = newFileType;
 }
 
+- (void)dump;
+{
+    FILE *fl = fopen("/tmp/params.txt", "w");
+    NSMutableArray *v = [_inputData values];
+    for(int i = 0; i < [v count]; ++i) {
+        TRMParameters *parameters = v[i++];
+
+        fprintf(fl, "%f ", parameters.glottalPitch);
+        fprintf(fl, "%f ", parameters.glottalVolume);
+        fprintf(fl, "%f ", parameters.aspirationVolume);
+        fprintf(fl, "%f ", parameters.fricationVolume);
+        fprintf(fl, "%f ", parameters.fricationPosition);
+        fprintf(fl, "%f ", parameters.fricationCenterFrequency);
+        fprintf(fl, "%f ", parameters.fricationBandwidth);
+        for(int j = 0; j < 8; ++j)
+            fprintf(fl, "%f ", parameters.radius[j]);
+        fprintf(fl, "%f\n", parameters.velum);
+    }
+    fclose(fl);
+}
+
 - (void)synthesize;
 {
     TRMTubeModel *tube = [[TRMTubeModel alloc] initWithInputData:_inputData];
