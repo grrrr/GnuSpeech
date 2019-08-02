@@ -8,6 +8,17 @@
 @protocol TRMRingBufferDelegate;
 
 @interface TRMRingBuffer : NSObject
+{
+    double _buffer[TRMRingBufferSize];
+    int32_t _padSize;
+    int32_t _fillSize; // Derived from TRMRingBufferSize and padSize.  Remains constant.
+    
+    int32_t _fillPtr;
+    int32_t _emptyPtr;
+    int32_t _fillCounter;
+    
+    __weak id <TRMRingBufferDelegate> _delegate;
+}
 
 - (id)initWithPadSize:(int32_t)padSize;
 

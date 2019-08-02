@@ -10,6 +10,12 @@
 
 // FIR lowpass filter
 @interface TRMFIRFilter : NSObject
+{
+    double *_FIRData;
+    double *_FIRCoef;
+    int32_t _FIRPtr;
+    int32_t _numberTaps;
+}
 
 - (id)initWithBeta:(double)beta gamma:(double)gamma cutoff:(double)cutoff;
 

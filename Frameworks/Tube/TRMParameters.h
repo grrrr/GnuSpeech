@@ -2,9 +2,21 @@
 //  Copyright 1991-2012 David R. Hill, Leonard Manzara, Craig Schock
 
 #import <Foundation/Foundation.h>
+#import "TRMConstants.h"
 
 // Control parameters?
 @interface TRMParameters : NSObject
+{
+    double _glottalPitch;
+    double _glottalVolume;
+    double _aspirationVolume;
+    double _fricationVolume;
+    double _fricationPosition;
+    double _fricationCenterFrequency;
+    double _fricationBandwidth;
+    double _radius[TOTAL_REGIONS];
+    double _velum;
+}
 
 @property (assign) double glottalPitch;
 @property (assign) double glottalVolume;

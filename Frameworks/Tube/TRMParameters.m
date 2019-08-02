@@ -6,17 +6,15 @@
 #import "TRMTubeModel.h"
 
 @implementation TRMParameters
-{
-    double _glottalPitch;
-    double _glottalVolume;
-    double _aspirationVolume;
-    double _fricationVolume;
-    double _fricationPosition;
-    double _fricationCenterFrequency;
-    double _fricationBandwidth;
-    double _radius[TOTAL_REGIONS];
-    double _velum;
-}
+
+@synthesize glottalPitch = _glottalPitch;
+@synthesize glottalVolume = _glottalVolume;
+@synthesize aspirationVolume = _aspirationVolume;
+@synthesize fricationVolume = _fricationVolume;
+@synthesize fricationPosition = _fricationPosition;
+@synthesize fricationCenterFrequency = _fricationCenterFrequency;
+@synthesize fricationBandwidth = _fricationBandwidth;
+@synthesize velum = _velum;
 
 - (double *)radius;
 {

@@ -3,6 +3,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "TRMConstants.h"
+
 // Output file format constants
 enum {
     TRMSoundFileFormat_AU   = 0,
@@ -22,6 +24,37 @@ typedef NSUInteger TRMWaveFormType;
 NSString *TRMWaveFormTypeDescription(TRMWaveFormType type);
 
 @interface TRMInputParameters : NSObject
+{
+    TRMSoundFileFormat _outputFileFormat;
+    float _outputRate;
+    float _controlRate;
+    
+    double _volume;
+    NSUInteger _channels;
+    double _balance;
+    
+    TRMWaveFormType _waveform;
+    double _tp;
+    double _tnMin;
+    double _tnMax;
+    double _breathiness;
+    
+    double _length;
+    double _temperature;
+    double _lossFactor;
+    
+    double _apScale;
+    double _mouthCoef;
+    double _noseCoef;
+    
+    double _noseRadius[TOTAL_NASAL_SECTIONS];
+    
+    double _throatCutoff;
+    double _throatVol;
+    
+    BOOL _usesModulation;
+    double _mixOffset;
+}
 
 @property (assign) TRMSoundFileFormat outputFileFormat; // file format
 @property (assign) float outputRate;                    // output sample rate (22.05, 44.1 KHz)

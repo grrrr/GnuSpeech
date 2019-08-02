@@ -6,6 +6,10 @@
 @class TRMInputParameters;
 
 @interface TRMDataList : NSObject
+{
+    TRMInputParameters *_inputParameters;
+    NSMutableArray *_values;
+}
 
 - (id)initWithContentsOfFile:(NSString *)path error:(NSError **)error;
 

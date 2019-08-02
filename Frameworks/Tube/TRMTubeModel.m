@@ -1,88 +1,12 @@
 //  This file is part of Gnuspeech, an extensible, text-to-speech package, based on real-time, articulatory, speech-synthesis-by-rules. 
 //  Copyright 1991-2012 David R. Hill, Leonard Manzara, Craig Schock
 
-#import "TRMTubeModel.h"
-
 #import <AudioToolbox/AudioToolbox.h>
-#import "TRMParameters.h"
+
 #import "TRMDataList.h"
 #import "TRMInputParameters.h"
-#import "TRMUtility.h"
-#import "TRMSampleRateConverter.h"
-#import "TRMWavetable.h"
 #import "NSData-STExtensions.h"
-
-#import "TRMFilters.h"
-
-// Oropharynx scattering junction coefficients (between each region)
-#define C1                        TRM_R1     // R1-R2 (S1-S2)
-#define C2                        TRM_R2     // R2-R3 (S2-S3)
-#define C3                        TRM_R3     // R3-R4 (S3-S4)
-#define C4                        TRM_R4     // R4-R5 (S5-S6)
-#define C5                        TRM_R5     // R5-R6 (S7-S8)
-#define C6                        TRM_R6     // R6-R7 (S8-S9)
-#define C7                        TRM_R7     // R7-R8 (S9-S10)
-#define C8                        TRM_R8     // R8-AIR (S10-AIR)
-#define TOTAL_COEFFICIENTS        TOTAL_REGIONS
-
-// Oropharynx sections
-#define S1                        0      // R1
-#define S2                        1      // R2
-#define S3                        2      // R3
-#define S4                        3      // R4
-#define S5                        4      // R4
-#define S6                        5      // R5
-#define S7                        6      // R5
-#define S8                        7      // R6
-#define S9                        8      // R7
-#define S10                       9      // R8
-#define TOTAL_SECTIONS            10
-
-// Nasal tract coefficients
-#define NC1                       TRM_N1     // N1-N2
-#define NC2                       TRM_N2     // N2-N3
-#define NC3                       TRM_N3     // N3-N4
-#define NC4                       TRM_N4     // N4-N5
-#define NC5                       TRM_N5     // N5-N6
-#define NC6                       TRM_N6     // N6-AIR
-#define TOTAL_NASAL_COEFFICIENTS  TOTAL_NASAL_SECTIONS
-
-// Three-way junction alpha coefficients
-#define LEFT                      0
-#define RIGHT                     1
-#define UPPER                     2
-#define TOTAL_ALPHA_COEFFICIENTS  3
-
-// Frication injection coefficients
-#define FC1                       0      // S3
-#define FC2                       1      // S4
-#define FC3                       2      // S5
-#define FC4                       3      // S6
-#define FC5                       4      // S7
-#define FC6                       5      // S8
-#define FC7                       6      // S9
-#define FC8                       7      // S10
-#define TOTAL_FRIC_COEFFICIENTS   8
-
-
-// Scaling constant for input to vocal tract and throat (matches DSP)
-//#define VT_SCALE                  0.03125       // 2^(-5)
-
-// this is a temporary fix only, to try to match dsp synthesizer
-#define VT_SCALE                  0.125         // 2^(-3)
-
-// Bi-directional transmission line pointers
-#define TOP                       0
-#define BOTTOM                    1
-
-// 1 means to compile so that interpolation not done for some control rate parameters
-#define MATCH_DSP 0
-
-// Maximum sample value
-#define TRMSampleValue_Maximum    32767.0
-
-// Size in bits per output sample
-#define TRMBitsPerSample          16
+#import "TRMTubeModel.h"
 
 AudioFileTypeID TRMCoreAudioFormatFromSoundFileFormat(TRMSoundFileFormat format)
 {
@@ -121,73 +45,21 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
 
 #pragma mark -
 
-@interface TRMTubeModel ()
-@property (readonly) TRMDataList *inputData;
-@property (nonatomic, readonly) TRMInputParameters *inputParameters;
-@property (readonly) TRMSampleRateConverter *sampleRateConverter;
-@end
-
 #pragma mark -
 
 @implementation TRMTubeModel
-{
-    // Derived values
-    int32_t _controlPeriod;
-    int32_t _sampleRate;
-    double _actualTubeLength;            // actual length in cm
 
-    double _dampingFactor;             // calculated damping factor
-    double _crossmixFactor;              // calculated crossmix factor
+@synthesize inputData = _inputData;
+@synthesize sampleRateConverter = _sampleRateConverter;
 
-    double _breathinessFactor;
-
-    TRMNoiseGenerator _noiseGenerator;
-    TRMLowPassFilter2 _noiseFilter;             // One-zero lowpass filter.
-
-    // Mouth reflection filter: Is a variable, one-pole lowpass filter,            whose cutoff       is determined by the mouth aperture coefficient.
-    // Mouth radiation filter:  Is a variable, one-zero, one-pole highpass filter, whose cutoff point is determined by the mouth aperture coefficient.
-    TRMRadiationReflectionFilter _mouthFilterPair;
-
-    // Nasal reflection filter: Is a one-pole lowpass filter,            used for terminating the end of            the nasal cavity.
-    // Nasal radiation filter:  Is a one-zero, one-pole highpass filter, used for the radiation characteristic from the nasal cavity.
-    TRMRadiationReflectionFilter _nasalFilterPair;
-
-    TRMLowPassFilter _throatLowPassFilter;      // Simulates the radiation of sound through the walls of the throat.
-    double _throatGain;
-
-    TRMBandPassFilter _fricationBandPassFilter; // Frication bandpass filter, with variable center frequency and bandwidth.
-
-    // Memory for tue and tube coefficients
-    double _oropharynx[TOTAL_SECTIONS][2][2];
-    double _oropharynx_coeff[TOTAL_COEFFICIENTS];
-
-    double _nasal[TOTAL_NASAL_SECTIONS][2][2];
-    double _nasal_coeff[TOTAL_NASAL_COEFFICIENTS];
-
-    double _alpha[TOTAL_ALPHA_COEFFICIENTS];
-    NSUInteger _currentIndex;
-    NSUInteger _previousIndex;
-
-    // Memory for frication taps
-    double _fricationTap[TOTAL_FRIC_COEFFICIENTS];
-
-    // Variables for interpolation
-    TRMParameters *_currentParameters;
-    TRMParameters *_currentDelta;
-
-    TRMSampleRateConverter *_sampleRateConverter;
-    TRMWavetable *_wavetable;
-
-    TRMDataList *_inputData;
-
-    BOOL _verbose;
-}
 
 - (id)initWithInputData:(TRMDataList *)inputData;
 {
     if ((self = [super init])) {
         _inputData = inputData;
-
+        _inputPosition = 0;
+        _previousParameters = nil;
+        
         double nyquist;
         
         _currentParameters = [[TRMParameters alloc] init];
@@ -269,24 +141,37 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
 #pragma mark -
 
 // Performs the actual synthesis of sound samples.
-- (void)synthesize;
+- (void)synthesize
 {
-    if ([self.inputData.values count] == 0) {
-        // No data
-        return;
+    int frames = -1;
+    
+    if (_previousParameters == nil) {
+        if(_inputPosition >= [self.inputData.values count]) return;
+        _previousParameters = self.inputData.values[_inputPosition++];
     }
+        
+//    int bufpos = 0;
     
-    // Control rate loop
-    TRMParameters *previous = nil;
-    
-    for (TRMParameters *parameters in self.inputData.values) {
-        if (previous == nil) {
-            previous = parameters;
-            continue;
+    for(int f = 0; f < frames || frames < 0; ++f) {
+/*
+        if(buffer) {
+            int maxrd = (frames-bufpos)*sizeof(*buffer);
+            int rdbytes = [_inputStream read:(buffer+bufpos) maxLength:maxrd];
+            if(rdbytes < 0) return; // error
+            int rd = rdbytes/sizeof(*buffer);
+            bufpos += rd;
+        }
+*/
+        if(_inputPosition >= [self.inputData.values count]) {
+            // Be sure to flush source buffer
+            [self.sampleRateConverter flush];
+            break;
         }
         
+        TRMParameters *parameters = self.inputData.values[_inputPosition++];
+
         // Set control rate parameters from input tables
-        [self setControlRateParameters:parameters previous:previous];
+        [self setControlRateParameters:parameters previous:_previousParameters];
         
         // Sample rate loop
         for (NSUInteger j = 0; j < _controlPeriod; j++) {
@@ -333,9 +218,7 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
             }
             
             // Put signal through vocal tract
-            signal = [self updateVocalTractWithGlottalPulse:((pulse + (ah1 * signal)) * VT_SCALE)
-                                                  frication:TRMBandPassFilter_FilterInput(&_fricationBandPassFilter, signal)];
-            
+            signal = [self updateVocalTractWithGlottalPulse:((pulse + (ah1 * signal)) * VT_SCALE) frication:TRMBandPassFilter_FilterInput(&_fricationBandPassFilter, signal)];
             
             // Put pulse through throat
             signal += TRMLowPassFilter_FilterInput(&_throatLowPassFilter, pulse * VT_SCALE) * _throatGain;
@@ -353,11 +236,8 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
                 printf("\nDone sample rate interp\n");
         }
         
-        previous = parameters;
+        _previousParameters = parameters;
     }
-    
-    // Be sure to flush source buffer
-    [self.sampleRateConverter flush];
 }
 
 // Scales the samples stored in the temporary data stream, and writes them to the output file, with the appropriate
@@ -367,12 +247,12 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
     //printf("maximumSampleValue: %g\n", sampleRateConverter->maximumSampleValue);
     
     // Calculate scaling constant
-    double scale = (TRMSampleValue_Maximum / self.sampleRateConverter.maximumSampleValue) * amplitude(self.inputParameters.volume);
+    double scale = (1. / self.sampleRateConverter.maximumSampleValue) * amplitude(self.inputParameters.volume);
     
     /*if (verbose)*/ {
         printf("\nnumber of samples:\t%-d\n", self.sampleRateConverter.numberSamples);
         printf("maximum sample value:\t%.4f\n", self.sampleRateConverter.maximumSampleValue);
-        printf("scale:\t\t\t%.4f\n", scale);
+//        printf("scale:\t\t\t%.4f\n", scale);
     }
     
     // If stereo, calculate left and right scaling constants
@@ -381,17 +261,18 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
 		// Calculate left and right channel amplitudes
 		leftScale = -((self.inputParameters.balance / 2.0) - 0.5) * scale * 2.0;
 		rightScale = ((self.inputParameters.balance / 2.0) + 0.5) * scale * 2.0;
-        
+/*
 		if (_verbose) {
 			printf("left scale:\t\t%.4f\n", leftScale);
 			printf("right scale:\t\t%.4f\n", rightScale);
 		}
+*/
     }
-    
+
     NSData *resampledData = [self.sampleRateConverter resampledData];
     NSInputStream *inputStream = [NSInputStream inputStreamWithData:resampledData];
     [inputStream open];
-
+    
     //NSString *filePath = [filename stringByAppendingPathExtension:TRMSoundFileFormatExtension(self.inputParameters.outputFileFormat)];
     NSURL *fileURL = [NSURL fileURLWithPath:filename];
 
@@ -426,7 +307,7 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
                 NSCAssert(result == sizeof(sample), @"Error reading from input stream");
                 
                 UInt32 sampleByteCount = 2;
-                int16_t sample2 = CFSwapInt16HostToLittle(rint(sample * scale));
+                int16_t sample2 = CFSwapInt16HostToLittle(rint(sample * scale * TRMSampleValue_Maximum));
                 audioError = AudioFileWriteBytes(audioFile, false, index * 2, &sampleByteCount, &sample2);
                 assert(audioError == noErr);
             }
@@ -438,7 +319,7 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
                 NSCAssert(result == sizeof(sample), @"Error reading from input stream");
                 
                 UInt32 sampleByteCount = 2;
-                int16_t sample2 = CFSwapInt16HostToBig(rint(sample * scale));
+                int16_t sample2 = CFSwapInt16HostToBig(rint(sample * scale * TRMSampleValue_Maximum));
                 audioError = AudioFileWriteBytes(audioFile, false, index * 2, &sampleByteCount, &sample2);
                 assert(audioError == noErr);
             }
@@ -451,8 +332,8 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
                 NSInteger result = [inputStream read:(void *)&sample maxLength:sizeof(sample)];
                 NSCAssert(result == sizeof(sample), @"Error reading from input stream");
                 
-                int16_t left  = CFSwapInt16HostToLittle(rint(sample * leftScale));
-                int16_t right = CFSwapInt16HostToLittle(rint(sample * rightScale));
+                int16_t left  = CFSwapInt16HostToLittle(rint(sample * leftScale * TRMSampleValue_Maximum));
+                int16_t right = CFSwapInt16HostToLittle(rint(sample * rightScale * TRMSampleValue_Maximum));
 
                 UInt32 sampleByteCount = 2;
                 audioError = AudioFileWriteBytes(audioFile, false, index * 4, &sampleByteCount, &left);
@@ -469,8 +350,8 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
                 NSInteger result = [inputStream read:(void *)&sample maxLength:sizeof(sample)];
                 NSCAssert(result == sizeof(sample), @"Error reading from input stream");
                 
-                int16_t left  = CFSwapInt16HostToBig(rint(sample * leftScale));
-                int16_t right = CFSwapInt16HostToBig(rint(sample * rightScale));
+                int16_t left  = CFSwapInt16HostToBig(rint(sample * leftScale * TRMSampleValue_Maximum));
+                int16_t right = CFSwapInt16HostToBig(rint(sample * rightScale * TRMSampleValue_Maximum));
                 
                 UInt32 sampleByteCount = 2;
                 audioError = AudioFileWriteBytes(audioFile, false, index * 4, &sampleByteCount, &left);
@@ -486,6 +367,8 @@ NSString *STCoreAudioErrorDescription(OSStatus error)
     audioError = AudioFileClose(audioFile);
     assert(audioError == noErr);
 
+    [inputStream close];
+    
     return YES;
 }
 

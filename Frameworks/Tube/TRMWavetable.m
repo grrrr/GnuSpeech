@@ -6,8 +6,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-#import "TRMFIRFilter.h"
-
 #ifdef GNUSTEP
 #undef USE_VECLIB
 #else
@@ -33,27 +31,12 @@ static double mod0(double value)
     return value;
 }
 
-@interface TRMWavetable ()
-@end
-
 #pragma mark -
 
 @implementation TRMWavetable
-{
-    TRMFIRFilter *_FIRFilter;
-    double *_wavetable;
-
-    int32_t _tableDiv1;
-    int32_t _tableDiv2;
-    double _tnLength;
-    double _tnDelta;
-
-    double _basicIncrement;
-    double _currentPosition;
-}
 
 // Calculates the initial glottal pulse and stores it in the wavetable, for use in the oscillator.
-- (id)initWithWaveform:(TRMWaveFormType)waveForm throttlePulse:(double)tp tnMin:(double)tnMin tnMax:(double)tnMax sampleRate:(double)sampleRate;
+- (id)initWithWaveform:(unsigned long)waveForm throttlePulse:(double)tp tnMin:(double)tnMin tnMax:(double)tnMax sampleRate:(double)sampleRate;
 {
     if ((self = [super init])) {
         int32_t i, j;
@@ -142,9 +125,9 @@ static double mod0(double value)
     }
 #else
     {
-        for (i = wavetable->tableDiv1, j = 0.0; i < newDiv2; i++, j++) {
+        for (i = _tableDiv1, j = 0.0; i < newDiv2; i++, j++) {
             double x = j / newTnLength;
-            wavetable->wavetable[i] = 1.0 - (x * x);
+            _wavetable[i] = 1.0 - (x * x);
         }
     }
 

@@ -27,12 +27,6 @@ static void rationalApproximation(double number, int32_t *order, int32_t *numera
 // Allocates memory and initializes the coefficients for the FIR filter used in the oversampling oscillator.
 
 @implementation TRMFIRFilter
-{
-    double *_FIRData;
-    double *_FIRCoef;
-    int32_t _FIRPtr;
-    int32_t _numberTaps;
-}
 
 - (id)initWithBeta:(double)beta gamma:(double)gamma cutoff:(double)cutoff;
 {

@@ -3,30 +3,77 @@
 
 #import <Foundation/Foundation.h>
 
-// Oropharynx Regions
-#define TRM_R1          0      //  S1
-#define TRM_R2          1      //  S2
-#define TRM_R3          2      //  S3
-#define TRM_R4          3      //  S4 & S5
-#define TRM_R5          4      //  S6 & S7
-#define TRM_R6          5      //  S8
-#define TRM_R7          6      //  S9
-#define TRM_R8          7      //  S10
-#define TOTAL_REGIONS   8
+#import "TRMParameters.h"
+#import "TRMTubeModel.h"
+#import "TRMUtility.h"
+#import "TRMFilters.h"
+#import "TRMSampleRateConverter.h"
+#import "TRMWavetable.h"
 
-// Nasal Tract Sections
-#define TRM_N1                    0
-#define TRM_VELUM                 TRM_N1
-#define TRM_N2                    1
-#define TRM_N3                    2
-#define TRM_N4                    3
-#define TRM_N5                    4
-#define TRM_N6                    5
-#define TOTAL_NASAL_SECTIONS      6
 
 @class TRMDataList;
 
 @interface TRMTubeModel : NSObject
+{
+    // Derived values
+    int32_t _controlPeriod;
+    int32_t _sampleRate;
+    double _actualTubeLength;            // actual length in cm
+    
+    double _dampingFactor;             // calculated damping factor
+    double _crossmixFactor;              // calculated crossmix factor
+    
+    double _breathinessFactor;
+    
+    TRMNoiseGenerator _noiseGenerator;
+    TRMLowPassFilter2 _noiseFilter;             // One-zero lowpass filter.
+    
+    // Mouth reflection filter: Is a variable, one-pole lowpass filter,            whose cutoff       is determined by the mouth aperture coefficient.
+    // Mouth radiation filter:  Is a variable, one-zero, one-pole highpass filter, whose cutoff point is determined by the mouth aperture coefficient.
+    TRMRadiationReflectionFilter _mouthFilterPair;
+    
+    // Nasal reflection filter: Is a one-pole lowpass filter,            used for terminating the end of            the nasal cavity.
+    // Nasal radiation filter:  Is a one-zero, one-pole highpass filter, used for the radiation characteristic from the nasal cavity.
+    TRMRadiationReflectionFilter _nasalFilterPair;
+    
+    TRMLowPassFilter _throatLowPassFilter;      // Simulates the radiation of sound through the walls of the throat.
+    double _throatGain;
+    
+    TRMBandPassFilter _fricationBandPassFilter; // Frication bandpass filter, with variable center frequency and bandwidth.
+    
+    // Memory for tue and tube coefficients
+    double _oropharynx[TOTAL_SECTIONS][2][2];
+    double _oropharynx_coeff[TOTAL_COEFFICIENTS];
+    
+    double _nasal[TOTAL_NASAL_SECTIONS][2][2];
+    double _nasal_coeff[TOTAL_NASAL_COEFFICIENTS];
+    
+    double _alpha[TOTAL_ALPHA_COEFFICIENTS];
+    NSUInteger _currentIndex;
+    NSUInteger _previousIndex;
+    
+    // Memory for frication taps
+    double _fricationTap[TOTAL_FRIC_COEFFICIENTS];
+    
+    // Variables for interpolation
+    TRMParameters *_currentParameters;
+    TRMParameters *_currentDelta;
+    TRMParameters *_previousParameters;
+
+    TRMSampleRateConverter *_sampleRateConverter;
+    NSInputStream *_inputStream;
+    
+    TRMWavetable *_wavetable;
+    
+    TRMDataList *_inputData;
+    int _inputPosition;
+    
+    BOOL _verbose;
+}
+
+@property (readonly) TRMDataList *inputData;
+@property (nonatomic, readonly) TRMInputParameters *inputParameters;
+@property (readonly) TRMSampleRateConverter *sampleRateConverter;
 
 - (id)initWithInputData:(TRMDataList *)inputData;
 

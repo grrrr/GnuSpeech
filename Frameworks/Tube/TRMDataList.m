@@ -6,18 +6,19 @@
 #import "TRMInputParameters.h"
 #import "TRMParameters.h"
 #import "TRMTubeModel.h"
-#import "TRMWaveTable.h"
+#import "TRMWavetable.h"
 
+/*
 @interface TRMDataList ()
 @end
+*/
 
 #pragma mark -
 
 @implementation TRMDataList
-{
-    TRMInputParameters *_inputParameters;
-    NSMutableArray *_values;
-}
+
+@synthesize inputParameters = _inputParameters;
+@synthesize values = _values;
 
 - (id)init;
 {
